@@ -70,3 +70,4 @@ namespace DotNetFundamentals.Tests
         public int GetRemainder(int x, int y) => x % y;
     }
 }
+ 
