@@ -17,6 +17,24 @@ namespace _01_HelloWorld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
+
+            string hello = "Hello World";
+            Console.WriteLine(hello);
+
+            string firstName = "Ransford";
+            string lastName = "Walker";
+
+            Console.WriteLine($"{hello}, {firstName} {lastName}");
+
+            Console.WriteLine("Enter your First Name:");
+            string first = Console.ReadLine();
+
+            Console.WriteLine("Enter your Last Name:");
+            string last = Console.ReadLine();
+
+            Console.WriteLine($"Good Morning, {first} {last}! Your age is unknown.");
+
+
             Console.ReadKey();
         }
     }
