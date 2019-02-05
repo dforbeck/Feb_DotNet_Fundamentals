@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Reference_Types_And_Colections.cs" />
+    <Compile Include="Operators_And_Methods.cs" />
     <Compile Include="Value_Types.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
