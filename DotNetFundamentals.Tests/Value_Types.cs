@@ -38,5 +38,33 @@ namespace DotNetFundamentals.Tests
             DateTime today = DateTime.Now;
             DateTime someDay = new DateTime(1978, 1, 1);
         }
+
+        public void Declaration()
+        {
+            int number;
+            string name;
+            decimal money;
+            bool isSmart;
+            float rating;
+            short numOfFriends;
+            long desiredSalary;
+            byte cupcakes;
+            char bang;
+            double trouble;
+        }
+
+        public void DeclarationAndIntitialization()
+        {
+            int number = 2;
+            string name = "Ransford";
+            decimal money= 12345m;
+            bool isSmart = true;
+            float rating = 1.56f;
+            short numOfFriends= 5;
+            long desiredSalary= 1000000;
+            byte cupcakes= 45;
+            char bang = '!';
+            double trouble= 455424d;
+        }
     }
 }
