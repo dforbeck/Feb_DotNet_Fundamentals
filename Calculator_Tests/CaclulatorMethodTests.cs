@@ -1,5 +1,4 @@
-﻿using System;
-using Calculator_RepositoryPattern;
+﻿using Calculator_RepositoryPattern;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Calculator_Tests
@@ -7,14 +6,26 @@ namespace Calculator_Tests
     [TestClass]
     public class CaclulatorMethodTests
     {
-        CalculatorRepository _calcRepo = new CalculatorRepository();
+        CalculatorRepository _calcRepo;
+        int a;
+        int b;
+        int x;
+        int y;
+
+        [TestInitialize]
+        public void Arrange()
+        {
+            _calcRepo = new CalculatorRepository();
+            a = 1;
+            b = 5;
+            x = 2;
+            y = 6;
+
+        }
 
         [TestMethod]
         public void CalculatorRepository_AddTwoNumbers_ShouldReturnCorrectSum()
         {
-            int a = 1;
-            int b = 5;
-
             var expected = 6;
             var actual = _calcRepo.AddTwoNumbers(a, b);
 
@@ -24,9 +35,6 @@ namespace Calculator_Tests
         [TestMethod]
         public void CalculatorRepository_SubtractTwoNumbers_ShouldReturnCorrectValue()
         {
-            int a = 1;
-            int b = 5;
-
             var expected = 4;
             var actual = _calcRepo.SubtractTwoNumbers(b, a);
 
@@ -36,11 +44,8 @@ namespace Calculator_Tests
         [TestMethod]
         public void CalculatorRepository_MultiplyTwoNumbers_ShouldReturnCorrectValue()
         {
-            int a = 2;
-            int b = 5;
-
             var expected = 10;
-            var actual = _calcRepo.MultiplyTwoNumbers(b, a);
+            var actual = _calcRepo.MultiplyTwoNumbers(b, x);
 
             Assert.AreEqual(expected, actual);
         }
@@ -48,11 +53,8 @@ namespace Calculator_Tests
         [TestMethod]
         public void CalculatorRepository_DivideTwoNumbers_ShouldReturnCorrectValue()
         {
-            int a = 2;
-            int b = 6;
-
             var expected = 3;
-            var actual = _calcRepo.DivideTwoNumbers(b, a);
+            var actual = _calcRepo.DivideTwoNumbers(y, x);
 
             Assert.AreEqual(expected, actual);
         }
@@ -60,11 +62,8 @@ namespace Calculator_Tests
         [TestMethod]
         public void CalculatorRepository_GetRemainder_ShouldReturnCorrectValue()
         {
-            int a = 2;
-            int b = 5;
-
             var expected = 1;
-            var actual = _calcRepo.GetRemainder(b, a);
+            var actual = _calcRepo.GetRemainder(b, x);
 
             Assert.AreEqual(expected, actual);
         }
