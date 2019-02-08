@@ -2,34 +2,24 @@
 {
     public class CalculatorRepository
     {
-        public int AddTwoNumbers(int a, int b)
+        public decimal AddTwoNumbers(decimal a, decimal b) => a + b;
+
+        public decimal AddMultipleNumbers(decimal[] inputs)
         {
-            int c = a + b;
-            return c;
+            decimal result = 0;
+            foreach (decimal i in inputs)
+                result += i;
+            return result;
         }
 
-        public int SubtractTwoNumbers(int a, int b)
-        {
-            int c = a - b;
-            return c;
-        }
+        public decimal SubtractTwoNumbers(decimal a, decimal b) => a - b;
 
-        public int MultiplyTwoNumbers(int a, int b)
-        {
-            int c = a * b;
-            return c;
-        }
+        public decimal MultiplyTwoNumbers(decimal a, decimal b) => a * b;
 
-        public int DivideTwoNumbers(int a, int b)
-        {
-            int c = a / b;
-            return c;
-        }
+        public decimal DivideTwoNumbers(decimal a, decimal b) => a / b;
 
-        public int GetRemainder(int a, int b)
-        {
-            int c = a % b;
-            return c;
-        }
+        public decimal GetRemainder(decimal a, decimal b) => a % b;
+
+        public decimal Square(decimal a) => a * a;
     }
 }
