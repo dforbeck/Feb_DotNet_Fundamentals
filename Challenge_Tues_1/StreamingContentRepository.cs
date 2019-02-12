@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Challenge_Tues_1
 {
@@ -37,6 +38,11 @@ namespace Challenge_Tues_1
                     break;
             }
             return genre;
+        }
+
+        internal void RemoveContentFromList(StreamingContent content)
+        {
+            _contentList.Remove(content);
         }
     }
 }

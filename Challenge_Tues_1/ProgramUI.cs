@@ -13,26 +13,65 @@ namespace Challenge_Tues_1
         internal void Run()
         {
             _listOfContent = _contentRepo.GetContentList();
+            SeedData();
             while (_response != 4)
             {
                 PrintMenu();
                 switch (_response)
                 {
                     case 1:
+                        SeeAllContent();
                         break;
                     case 2:
                         GetUserInput();
                         break;
                     case 3:
+                        RemoveContent();
                         break;
                     case 4:
+                        Console.WriteLine("Have a nice day!");
                         break;
                     default:
                         Console.WriteLine("Please enter an appropriate number.");
                         break;
                 }
+                Console.Write("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
             }
-            Console.ReadLine();
+        }
+
+        private void RemoveContent()
+        {
+            SeeAllContent();
+            Console.WriteLine("Enter the name of the content you would like to remove:");
+            string desiredName = Console.ReadLine();
+            foreach(StreamingContent content in _listOfContent)
+            {
+                if (content.Name == desiredName)
+                {
+                    _contentRepo.RemoveContentFromList(content);
+                    break;
+                }
+            }
+        }
+
+        private void SeedData()
+        {
+            _contentRepo.AddContentToList(new StreamingContent("Star Wars", 2.1, GenreType.Action, true));
+            _contentRepo.AddContentToList(new StreamingContent("Bob's Burgers", .5, GenreType.Comedy, false));
+            _contentRepo.AddContentToList(new StreamingContent("Transformers", 2.4, GenreType.Action, true));
+            _contentRepo.AddContentToList(new StreamingContent("American Horror Story", 1, GenreType.Thriller, false));
+        }
+
+        private void SeeAllContent()
+        {
+            Console.WriteLine("Content Name\tContent Duration\tGenre\tIs it a Movie?");
+            foreach (StreamingContent content in _listOfContent)
+            {
+                Console.WriteLine($"{content.Name}\t{content.Duration} Hours\t\t{content.TypeOfGenre}\t{content.IsMovie}");
+            }
+            
         }
 
         public void PrintMenu()
