@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Challenge_Tests
 {
     [TestClass]
-    public class TuesMorningTests
+    public class Tues_Challenge_1_Tests
     {
         StreamingContentRepository _contentRepoTest = new StreamingContentRepository();
 

@@ -49,8 +49,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TuesMorningTests.cs" />
+    <Compile Include="Tues_Challenge_1_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tues_Challenge_2_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\Challenge_Tues_1\Challenge_Tues_1.csproj">
       <Project>{40982541-3850-43d3-819c-2de545b7a6c2}</Project>
       <Name>Challenge_Tues_1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Challenge_Tues_2\Challenge_Tues_2.csproj">
+      <Project>{b7061c68-4bcc-4242-af97-ca620255dc5e}</Project>
+      <Name>Challenge_Tues_2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
