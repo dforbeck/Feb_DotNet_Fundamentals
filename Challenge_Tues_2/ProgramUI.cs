@@ -49,17 +49,7 @@ namespace Challenge_Tues_2
 
         private Car GetUserInputForCar()
         {
-            Console.WriteLine("Please Select A Brand:\n\t" +
-                "1. Toyota\n\t" +
-                "2. Ford\n\t" +
-                "3. Chevrolet\n\t" +
-                "4. Honda\n\t" +
-                "5. Tesla\n\t" +
-                "6. Lambourgini\n\t" +
-                "7. BMW" +
-                "8. Other");
-            var brandResponse = int.Parse(Console.ReadLine());
-            var brand = _carRepo.GetBrandByInt(brandResponse);
+            var brand = SelectABrand();
 
             Console.WriteLine("Please Select A Type Of Car:\n\t" +
                 "1. Truck\n\t" +
@@ -86,15 +76,15 @@ namespace Challenge_Tues_2
             var rating = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Is the car four-wheel drive? y/n");
-            var boolResponse = Console.ReadLine().ToLower();
+            var boolResponse = Console.ReadLine();
             var isFWD = _carRepo.GetBooleanFromString(boolResponse);
 
             Console.WriteLine("Has the car had an accident? y/n");
-            boolResponse = Console.ReadLine().ToLower();
+            boolResponse = Console.ReadLine();
             var hadAccident = _carRepo.GetBooleanFromString(boolResponse);
 
             Console.WriteLine("Does the car have heated seats?");
-            boolResponse = Console.ReadLine().ToLower();
+            boolResponse = Console.ReadLine();
             var hasHeatSeats = _carRepo.GetBooleanFromString(boolResponse);
 
             return new Car(brand, type, year, mileage, color, doors, rating, isFWD, hadAccident, hasHeatSeats);
@@ -124,21 +114,35 @@ namespace Challenge_Tues_2
             switch (propertyChoice)
             {
                 case 1:
-
+                    Console.WriteLine($"The current Brand is {car.BrandOfCar}");
+                    car.BrandOfCar = SelectABrand();
                     break;
                 case 2:
+                    Console.WriteLine($"The current car typs is {car.TypeOfCar}");
+                    car.TypeOfCar = SelectACarType();
                     break;
                 case 3:
+                    Console.WriteLine($"The current car year is {car.Year}");
+                    car.Year = EnterAYear();
                     break;
                 case 4:
+                    Console.WriteLine($"The current mileage is {car.Mileage}");
+                    car.Mileage = EnterAMileage();
                     break;
                 case 5:
+                    Console.WriteLine($"The current color is {car.Color}");
+                    car.Color = EnterAColor();
                     break;
                 case 6:
+                    Console.WriteLine($"The current number of doors is {car.NumOfDoors}");
+                    car.NumOfDoors = EnterNumberOfDoors();
                     break;
                 case 7:
+                    Console.WriteLine($"The current safety rating is {car.SafteyRating}");
+                    car.SafteyRating = EnterSafetyRating();
                     break;
                 case 8:
+
                     break;
                 case 9:
                     break;
@@ -148,6 +152,62 @@ namespace Challenge_Tues_2
                     break;
             }
             Console.WriteLine("Coming Soon!");
+        }
+
+        private int EnterSafetyRating()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int EnterAYear()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int EnterAMileage()
+        {
+            throw new NotImplementedException();
+        }
+
+        private int EnterNumberOfDoors()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string EnterAColor()
+        {
+            Console.Write("Enter the car's color: ");
+            var color = Console.ReadLine();
+            return color;
+        }
+
+        private CarType SelectACarType()
+        {
+            Console.WriteLine("Please Select A Type Of Car:\n\t" +
+                "1. Truck\n\t" +
+                "2. Van\n\t" +
+                "3. Sedan\n\t" +
+                "4. Hybrid\n\t" +
+                "5. Other");
+            var typeResponse = int.Parse(Console.ReadLine());
+            var type = _carRepo.GetCarTypeByInt(typeResponse);
+            return type;
+        }
+
+        private Brand SelectABrand()
+        {
+            Console.WriteLine("Please Select A Brand:\n\t" +
+                            "1. Toyota\n\t" +
+                            "2. Ford\n\t" +
+                            "3. Chevrolet\n\t" +
+                            "4. Honda\n\t" +
+                            "5. Tesla\n\t" +
+                            "6. Lambourgini\n\t" +
+                            "7. BMW" +
+                            "8. Other");
+            var brandResponse = int.Parse(Console.ReadLine());
+            var brand = _carRepo.GetBrandByInt(brandResponse);
+            return brand;
         }
 
         private Car SelectACar(string action)
@@ -179,6 +239,15 @@ namespace Challenge_Tues_2
             Console.WriteLine("Brand\tCar Type\tYear\tMileage\tColor\tDoors\tSafteyRating\tFWD Status\tAccident?\tHeated Seats?");
             foreach (Car car in _carList)
                 Console.WriteLine($"{car.BrandOfCar}\t{car.TypeOfCar}\t{car.Year}\t{car.Mileage}\t{car.Color}\t{car.NumOfDoors}\t{car.SafteyRating}\t{car.IsFWD}\t{car.HadAccident}\t{car.HasHeatedSeats}");
+        }
+
+        private bool GetBool()
+        {
+            Console.WriteLine("Enter y if true.");
+            string response = Console.ReadLine();
+            if (response.Contains("y") || response.Contains("Y"))
+                return true;
+            else return false;
         }
     }
 }

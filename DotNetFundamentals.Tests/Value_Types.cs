@@ -37,20 +37,22 @@ namespace DotNetFundamentals.Tests
             //Example of DateTime Reference Type
             DateTime today = DateTime.Now;
             DateTime someDay = new DateTime(1978, 1, 1);
+
+            Console.WriteLine($"{character}{hasLegs}{isOn}{byteMax}{byteMin}{shortMax}{shortMin}{intMax}{intMin}{longerNum}{floatNum}{doubleNum}{decNum}{nullibleInt}");
         }
 
         public void Declaration()
         {
-            int number;
-            string name;
-            decimal money;
-            bool isSmart;
-            float rating;
-            short numOfFriends;
-            long desiredSalary;
-            byte cupcakes;
-            char bang;
-            double trouble;
+            //int number;
+            //string name;
+            //decimal money;
+            //bool isSmart;
+            //float rating;
+            //short numOfFriends;
+            //long desiredSalary;
+            //byte cupcakes;
+            //char bang;
+            //double trouble;
         }
 
         public void DeclarationAndIntitialization()
@@ -65,6 +67,8 @@ namespace DotNetFundamentals.Tests
             byte cupcakes= 45;
             char bang = '!';
             double trouble= 455424d;
+
+            Console.WriteLine($"{number}{name}{money}{isSmart}{rating}{numOfFriends}{desiredSalary}{cupcakes}{bang}{trouble}");
         }
     }
 }
