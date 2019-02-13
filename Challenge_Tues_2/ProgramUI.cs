@@ -20,7 +20,6 @@ namespace Challenge_Tues_2
                 {
                     case 1:
                         PrintCars();
-                        Console.Clear();
                         break;
                     case 2:
                         var car = GetUserInputForCar();
@@ -50,42 +49,15 @@ namespace Challenge_Tues_2
         private Car GetUserInputForCar()
         {
             var brand = SelectABrand();
-
-            Console.WriteLine("Please Select A Type Of Car:\n\t" +
-                "1. Truck\n\t" +
-                "2. Van\n\t" +
-                "3. Sedan\n\t" +
-                "4. Hybrid\n\t" +
-                "5. Other");
-            var typeResponse = int.Parse(Console.ReadLine());
-            var type = _carRepo.GetCarTypeByInt(typeResponse);
-
-            Console.Write("Enter the car's year: ");
-            var year = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter the car's mileage: ");
-            var mileage = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter the car's color: ");
-            var color = Console.ReadLine();
-
-            Console.WriteLine("Enter the number of doors: ");
-            var doors = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("How safe is the car? 1-5");
-            var rating = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Is the car four-wheel drive? y/n");
-            var boolResponse = Console.ReadLine();
-            var isFWD = _carRepo.GetBooleanFromString(boolResponse);
-
-            Console.WriteLine("Has the car had an accident? y/n");
-            boolResponse = Console.ReadLine();
-            var hadAccident = _carRepo.GetBooleanFromString(boolResponse);
-
-            Console.WriteLine("Does the car have heated seats?");
-            boolResponse = Console.ReadLine();
-            var hasHeatSeats = _carRepo.GetBooleanFromString(boolResponse);
+            var type = SelectACarType();
+            var year = EnterAYear();
+            var mileage = EnterAMileage();
+            var color = EnterAColor();
+            var doors = EnterNumberOfDoors();
+            var rating = EnterSafetyRating();
+            var isFWD = GetFWDStatus();
+            var hadAccident = GetAccidentStatus();
+            var hasHeatSeats = GetHeatedSeatStatus();
 
             return new Car(brand, type, year, mileage, color, doors, rating, isFWD, hadAccident, hasHeatSeats);
         }
@@ -94,6 +66,24 @@ namespace Challenge_Tues_2
         {
             _carRepo.AddCarToList(new Car(Brand.BMW, CarType.Sedan, 2017, 35000, "Black", 2, 5, false, false, true));
             _carRepo.AddCarToList(new Car(Brand.Ford, CarType.Truck, 2007, 185000, "Black", 4, 3, true, true, false));
+        }
+
+        private void PrintMenu()
+        {
+            Console.WriteLine("What would you like to do?\n\t" +
+                "1. See All Cars\n\t" +
+                "2. Add A New Car\n\t" +
+                "3. Sell A Car\n\t" +
+                "4. Update A Car\n\t" +
+                "5. Exit Program");
+            _response = int.Parse(Console.ReadLine());
+        }
+
+        private void PrintCars()
+        {
+            Console.WriteLine("Brand\tCar Type\tYear\tMileage\tColor\tDoors\tSafteyRating\tFWD Status\tAccident?\tHeated Seats?");
+            foreach (Car car in _carList)
+                Console.WriteLine($"{car.BrandOfCar}\t{car.TypeOfCar}\t{car.Year}\t{car.Mileage}\t{car.Color}\t{car.NumOfDoors}\t{car.SafteyRating}\t{car.IsFWD}\t{car.HadAccident}\t{car.HasHeatedSeats}");
         }
 
         private void UpdateCar(Car car)
@@ -142,43 +132,79 @@ namespace Challenge_Tues_2
                     car.SafteyRating = EnterSafetyRating();
                     break;
                 case 8:
-
+                    string hasDoesNotHave;
+                    if (car.IsFWD) hasDoesNotHave = "has";
+                    else hasDoesNotHave = "does not have";
+                    Console.WriteLine($"The car {hasDoesNotHave} 4-Wheel Drive.");
+                    car.IsFWD = GetFWDStatus();
                     break;
                 case 9:
+                    if (car.HadAccident) hasDoesNotHave = "has";
+                    else hasDoesNotHave = "does not have";
+                    Console.WriteLine($"The car {hasDoesNotHave} an accident record.");
+                    car.HadAccident = GetAccidentStatus();
                     break;
                 case 10:
+                    if (car.HasHeatedSeats) hasDoesNotHave = "has";
+                    else hasDoesNotHave = "does not have";
+                    Console.WriteLine($"The car {hasDoesNotHave} an accident.");
+                    car.HasHeatedSeats = GetHeatedSeatStatus();
+
                     break;
                 default:
                     break;
             }
-            Console.WriteLine("Coming Soon!");
+        }
+
+        private bool GetHeatedSeatStatus()
+        {
+            Console.WriteLine("Does the car have heated seats?");
+            var boolResponse = Console.ReadLine();
+            return _carRepo.GetBooleanFromString(boolResponse);
+        }
+
+        private bool GetAccidentStatus()
+        {
+            Console.WriteLine("Has the car had an accident? y/n");
+            var boolResponse = Console.ReadLine();
+            return _carRepo.GetBooleanFromString(boolResponse);
+        }
+
+        private bool GetFWDStatus()
+        {
+            Console.WriteLine("Is the car four-wheel drive? y/n");
+            var boolResponse = Console.ReadLine();
+            return _carRepo.GetBooleanFromString(boolResponse);
         }
 
         private int EnterSafetyRating()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("How safe is the car? 1-5");
+            return int.Parse(Console.ReadLine());
         }
 
         private int EnterAYear()
         {
-            throw new NotImplementedException();
+            Console.Write("Enter the car's year: ");
+            return int.Parse(Console.ReadLine());
         }
 
         private int EnterAMileage()
         {
-            throw new NotImplementedException();
+            Console.Write("Enter the car's mileage: ");
+            return int.Parse(Console.ReadLine());
         }
 
         private int EnterNumberOfDoors()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter the number of doors: ");
+            return int.Parse(Console.ReadLine());
         }
 
         private string EnterAColor()
         {
             Console.Write("Enter the car's color: ");
-            var color = Console.ReadLine();
-            return color;
+            return Console.ReadLine();
         }
 
         private CarType SelectACarType()
@@ -223,31 +249,5 @@ namespace Challenge_Tues_2
             return _carList[carInt - 1];
         }
 
-        private void PrintMenu()
-        {
-            Console.WriteLine("What would you like to do?\n\t" +
-                "1. See All Cars\n\t" +
-                "2. Add A New Car\n\t" +
-                "3. Sell A Car\n\t" +
-                "4. Update A Car\n\t" +
-                "5. Exit Program");
-            _response = int.Parse(Console.ReadLine());
-        }
-
-        private void PrintCars()
-        {
-            Console.WriteLine("Brand\tCar Type\tYear\tMileage\tColor\tDoors\tSafteyRating\tFWD Status\tAccident?\tHeated Seats?");
-            foreach (Car car in _carList)
-                Console.WriteLine($"{car.BrandOfCar}\t{car.TypeOfCar}\t{car.Year}\t{car.Mileage}\t{car.Color}\t{car.NumOfDoors}\t{car.SafteyRating}\t{car.IsFWD}\t{car.HadAccident}\t{car.HasHeatedSeats}");
-        }
-
-        private bool GetBool()
-        {
-            Console.WriteLine("Enter y if true.");
-            string response = Console.ReadLine();
-            if (response.Contains("y") || response.Contains("Y"))
-                return true;
-            else return false;
-        }
     }
 }
