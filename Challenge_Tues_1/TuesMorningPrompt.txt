@@ -1,0 +1,11 @@
+﻿A popular streaming company has asked you to write a console 
+app to help them keep track of available content.
+
+They need to be able to see all their StreamingContent, Add 
+new content, and remove content. They also would like a menu
+for them to easily navigate through the application.
+
+
+Using the respository pattern, create an application that allows
+the user to create new content, see all content, and remove content. 
+You should have a program user interface and method repository. 

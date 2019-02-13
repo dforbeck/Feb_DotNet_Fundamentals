@@ -1,0 +1,19 @@
+﻿A popular streaming company has asked you to write a console 
+app to help them keep track of their streaming service. 
+
+
+They need to be able to see all their StreamingContent, Add 
+new content, and remove content. They also would like a menu
+for them to easily navigate through the application. 
+
+They also want to add a new feature that allows a user to create a 
+queue of content they would like to watch. They would need to be able
+to watch a show and add a new show to the list.
+
+
+Using the respository pattern, create an application that allows
+the user to create new content, see all content, and remove content. 
+You should have a program user interface and method repository. 
+
+You should also use a Queue to allow the company to create a Queue of 
+content for a customer.
