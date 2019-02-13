@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Challenge_Tues_1
 {
     //This is where we will house our methods that do not require Console.
-    internal class StreamingContentRepository
+    public class StreamingContentRepository
     {
         List<StreamingContent> _contentList;
 
@@ -40,7 +40,7 @@ namespace Challenge_Tues_1
             return genre;
         }
 
-        internal void RemoveContentFromList(StreamingContent content)
+        public void RemoveContentFromList(StreamingContent content)
         {
             _contentList.Remove(content);
         }
