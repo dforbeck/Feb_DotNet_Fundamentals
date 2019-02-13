@@ -124,6 +124,7 @@ namespace Challenge_Tues_2
             switch (propertyChoice)
             {
                 case 1:
+
                     break;
                 case 2:
                     break;
