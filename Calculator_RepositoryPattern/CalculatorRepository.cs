@@ -4,6 +4,8 @@
     {
         public decimal AddTwoNumbers(decimal a, decimal b) => a + b;
 
+        public int AddTwoNumbersByInt(int a, int b) => a + b;
+
         public decimal AddMultipleNumbers(decimal[] inputs)
         {
             decimal result = 0;
