@@ -2,7 +2,7 @@
 {
     public enum CarType { Truck, Van, Sedan, Hybrid, Other}
     public enum Brand { Toyota, Ford, Chevrolet, Honda, Tesla, Lambourgini, BMW, Other}
-    internal class Car
+    public class Car
     {
         public Brand BrandOfCar { get; set; }
         public CarType TypeOfCar { get; set; }

@@ -67,5 +67,20 @@ namespace Calculator_Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [DataTestMethod]
+        [DataRow(15, 1, 2, 3, 4, 5)]
+        [DataRow(18, 1, 2, 6, 4, 5)]
+        [DataRow(22, 1, 9, 3, 4, 5)]
+        [DataRow(34, 2, 23, 4, 5, 0)]
+        public void CalculatorRepository_AddMultipleNumbers_ShouldReturnCorrectValue(int expectedInt, int a, int b, int c, int d, int e)
+        {
+            decimal[] numbers = { a, b, c, d, e };
+
+            var actual = _calcRepo.AddMultipleNumbers(numbers);
+            decimal expected = expectedInt;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

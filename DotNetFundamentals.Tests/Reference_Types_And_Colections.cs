@@ -13,6 +13,8 @@ namespace DotNetFundamentals.Tests
             //Interfaces
 
             string hello = "Hello World";
+
+            Console.WriteLine(hello);
         }
 
         public void Collections()

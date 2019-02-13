@@ -3,30 +3,30 @@ using System.Collections.Generic;
 
 namespace Challenge_Tues_2
 {
-    internal class CarRepository
+    public class CarRepository
     {
         List<Car> _carList;
 
-        internal List<Car> GetCarList()
+        public List<Car> GetCarList()
         {
             _carList = new List<Car>();
             return _carList;
         }
 
-        internal void AddCarToList(Car car)
+        public void AddCarToList(Car car)
         {
             _carList.Add(car);
         }
 
-        internal bool GetBooleanFromString(string boolResponse)
+        public bool GetBooleanFromString(string boolResponse)
         {
-            if (boolResponse.Contains("y"))
+            if (boolResponse.ToLower().Contains("y"))
                 return true;
             else
                 return false;
         }
 
-        internal void RemoveCarFromList(Car car)
+        public void RemoveCarFromList(Car car)
         {
             _carList.Remove(car);
         }
