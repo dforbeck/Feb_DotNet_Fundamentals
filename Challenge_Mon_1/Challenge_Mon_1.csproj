@@ -55,6 +55,7 @@
     <Content Include="Prompt.txt" />
     <Content Include="TuesAfternoonPrompt.txt" />
     <Content Include="TuesMorningPrompt.txt" />
+    <Content Include="WedMorningPrompt.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

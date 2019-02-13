@@ -13,28 +13,37 @@ namespace Challenge_Tues_2
         {
             _carList = _carRepo.GetCarList();
             SeedCarData();
-            PrintMenu();
-            switch (_response)
+            while (_response != 5)
             {
-                case 1:
-                    PrintCars();
-                    break;
-                case 2:
-                    Car car = GetUserInputForCar();
-                    AddCarToList();
-                    break;
-                case 3:
-                    RemoveCarFromList();
-                    break;
-                case 4:
-                    UpdateCar();
-                    break;
-                case 5:
-                    Console.WriteLine("Have a nice day!");
-                    break;
-                default:
-                    Console.WriteLine("Please enter a correct value.");
-                    break;
+                PrintMenu();
+                switch (_response)
+                {
+                    case 1:
+                        PrintCars();
+                        Console.Clear();
+                        break;
+                    case 2:
+                        var car = GetUserInputForCar();
+                        _carRepo.AddCarToList(car);
+                        break;
+                    case 3:
+                        var removeCar = SelectACar("remove");
+                        _carRepo.RemoveCarFromList(removeCar);
+                        break;
+                    case 4:
+                        var updateCar = SelectACar("update");
+                        UpdateCar(updateCar);
+                        break;
+                    case 5:
+                        Console.WriteLine("Have a nice day!");
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a correct value.");
+                        break;
+                }
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
 
@@ -50,34 +59,7 @@ namespace Challenge_Tues_2
                 "7. BMW" +
                 "8. Other");
             var brandResponse = int.Parse(Console.ReadLine());
-            Brand brand;
-            switch (brandResponse)
-            {
-                case 1:
-                    brand = Brand.Toyota;
-                    break;
-                case 2:
-                    brand = Brand.Ford;
-                    break;
-                case 3:
-                    brand = Brand.Chevrolet;
-                    break;
-                case 4:
-                    brand = Brand.Honda;
-                    break;
-                case 5:
-                    brand = Brand.Tesla;
-                    break;
-                case 6:
-                    brand = Brand.Lambourgini;
-                    break;
-                case 7:
-                    brand = Brand.BMW;
-                    break;
-                default:
-                    brand = Brand.Other:
-                    break;
-            }
+            var brand = _carRepo.GetBrandByInt(brandResponse);
 
             Console.WriteLine("Please Select A Type Of Car:\n\t" +
                 "1. Truck\n\t" +
@@ -86,25 +68,7 @@ namespace Challenge_Tues_2
                 "4. Hybrid\n\t" +
                 "5. Other");
             var typeResponse = int.Parse(Console.ReadLine());
-            CarType type;
-            switch (typeResponse)
-            {
-                case 1:
-                    type = CarType.Truck;
-                    break;
-                case 2:
-                    type = CarType.Van;
-                    break;
-                case 3:
-                    type = CarType.Sedan;
-                    break;
-                case 4:
-                    type = CarType.Hybrid;
-                    break;
-                default:
-                    type = CarType.Other;
-                    break;
-            }
+            var type = _carRepo.GetCarTypeByInt(typeResponse);
 
             Console.Write("Enter the car's year: ");
             var year = int.Parse(Console.ReadLine());
@@ -133,7 +97,7 @@ namespace Challenge_Tues_2
             boolResponse = Console.ReadLine().ToLower();
             var hasHeatSeats = _carRepo.GetBooleanFromString(boolResponse);
 
-             return new Car(brand, type, year, mileage, color, doors, rating, isFWD, hadAccident, hasHeatSeats);
+            return new Car(brand, type, year, mileage, color, doors, rating, isFWD, hadAccident, hasHeatSeats);
         }
 
         private void SeedCarData()
@@ -142,19 +106,60 @@ namespace Challenge_Tues_2
             _carRepo.AddCarToList(new Car(Brand.Ford, CarType.Truck, 2007, 185000, "Black", 4, 3, true, true, false));
         }
 
-        private void UpdateCar()
+        private void UpdateCar(Car car)
         {
+            Console.WriteLine("Which property would you like to update?\n\t" +
+                "1.  Brand\n\t" +
+                "2.  Car Type\n\t" +
+                "3.  Year\n\t" +
+                "4.  Mileage\n\t" +
+                "5.  Color\n\t" +
+                "6.  Number of doors\n\t" +
+                "7.  Safety Rating\n\t" +
+                "8.  Four-wheel drive status\n\t" +
+                "9.  Accident Status\n\t" +
+                "10. Heated Seat Status\n\t" +
+                "11. No change");
+            int propertyChoice = int.Parse(Console.ReadLine());
+            switch (propertyChoice)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                default:
+                    break;
+            }
             Console.WriteLine("Coming Soon!");
         }
 
-        private void RemoveCarFromList()
+        private Car SelectACar(string action)
         {
-            throw new NotImplementedException();
-        }
-
-        private void AddCarToList()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine($"Which car would you like to {action}?");
+            int i = 1;
+            foreach (var c in _carList)
+            {
+                Console.WriteLine($"{i}. {c.Color} {c.Year} {c.BrandOfCar}");
+                i++;
+            }
+            var carInt = int.Parse(Console.ReadLine());
+            return _carList[carInt - 1];
         }
 
         private void PrintMenu()

@@ -25,5 +25,67 @@ namespace Challenge_Tues_2
             else
                 return false;
         }
+
+        internal void RemoveCarFromList(Car car)
+        {
+            _carList.Remove(car);
+        }
+
+        public Brand GetBrandByInt(int brandChoice)
+        {
+            Brand brand;
+            switch (brandChoice)
+            {
+                case 1:
+                    brand = Brand.Toyota;
+                    break;
+                case 2:
+                    brand = Brand.Ford;
+                    break;
+                case 3:
+                    brand = Brand.Chevrolet;
+                    break;
+                case 4:
+                    brand = Brand.Honda;
+                    break;
+                case 5:
+                    brand = Brand.Tesla;
+                    break;
+                case 6:
+                    brand = Brand.Lambourgini;
+                    break;
+                case 7:
+                    brand = Brand.BMW;
+                    break;
+                default:
+                    brand = Brand.Other;
+                    break;
+            }
+            return brand;
+        }
+
+        public CarType GetCarTypeByInt(int typeChoice)
+        {
+            CarType type;
+            switch (typeChoice)
+            {
+                case 1:
+                    type = CarType.Truck;
+                    break;
+                case 2:
+                    type = CarType.Van;
+                    break;
+                case 3:
+                    type = CarType.Sedan;
+                    break;
+                case 4:
+                    type = CarType.Hybrid;
+                    break;
+                default:
+                    type = CarType.Other;
+                    break;
+            }
+            return type;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Challenge_Tues_2
 {
-    public enum CarType { Truck, Van, Sedan, Hybrid}
+    public enum CarType { Truck, Van, Sedan, Hybrid, Other}
     public enum Brand { Toyota, Ford, Chevrolet, Honda, Tesla, Lambourgini, BMW, Other}
     internal class Car
     {
