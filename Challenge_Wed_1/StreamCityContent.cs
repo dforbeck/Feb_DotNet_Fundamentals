@@ -1,9 +1,9 @@
 ﻿namespace Challenge_Wed_1
 {
+    public enum GenreType { Action, Comedy, Thriller }
+
     public class StreamCityContent
     {
-        public enum GenreType { Action, Comedy, Thriller }
-
         public string Name { get; set; }
         public double Duration { get; set; }
         public GenreType TypeOfGenre { get; set; }
@@ -20,6 +20,11 @@
             Duration = duration;
             TypeOfGenre = genreType;
             IsMovie = isMovie;
+        }
+
+        public StreamCityContent(string name)
+        {
+            Name = name;
         }
     }
 }

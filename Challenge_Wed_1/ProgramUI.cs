@@ -17,7 +17,7 @@ namespace Challenge_Wed_1
             _contentList = _streamCityRepo.GetContentList();
             _contentQueue = _streamCityRepo.GetContentQueue();
             SeedData();
-            while (_response != 6)
+            while (_response != 7)
             {
                 PrintMenu();
                 switch (_response)

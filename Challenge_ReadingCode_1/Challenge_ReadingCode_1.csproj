@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B3B14990-4695-43A3-8B7D-A4C110DF86C1}</ProjectGuid>
+    <ProjectGuid>{211E22EA-DFDE-4E58-837C-413839390F6A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Challenge_Wed_1</RootNamespace>
-    <AssemblyName>Challenge_Wed_1</AssemblyName>
+    <RootNamespace>Challenge_ReadingCode_1</RootNamespace>
+    <AssemblyName>Challenge_ReadingCode_1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,18 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Essay.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StreamCityContent.cs" />
-    <Compile Include="StreamCityRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Prompt.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
