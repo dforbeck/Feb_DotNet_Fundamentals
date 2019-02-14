@@ -3,7 +3,7 @@ using static Challenge_Wed_1.StreamCityContent;
 
 namespace Challenge_Wed_1
 {
-    internal class StreamCityRepository
+    public class StreamCityRepository
     {
         List<StreamCityContent> _contentList;
         Queue<StreamCityContent> _contentQueue;
